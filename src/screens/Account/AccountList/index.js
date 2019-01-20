@@ -7,7 +7,20 @@ import React from 'react';
 import { FlatList } from 'react-native';
 import AccountItem from '../../../components/AccountItem';
 
-const accountListData = [{ id: 0, name: 'Tera 1' }, { id: 1, name: 'Tera 2' }, { id: 2, name: 'Tera 3' }, { id: 3, name: 'Tera 3' }];
+const accountListData = [
+  {
+    id: 890344, name: 'Tera 1', amount: 302934, currency: 'TERA',
+  },
+  {
+    id: 435993, name: 'Tera 2', amount: 546564, currency: 'TERA',
+  },
+  {
+    id: 233454, name: 'Tera 3', amount: 756765, currency: 'TERA',
+  },
+  {
+    id: 435434, name: 'Tera 3', amount: 765745, currency: 'TERA',
+  },
+];
 
 class AccountList extends React.Component {
   keyExtractor = item => `${item.id}`;

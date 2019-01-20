@@ -4,14 +4,42 @@
  * @flow
  */
 import React from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import styles from './styles';
 
-class AccountItem extends React.Component {
+type Props = {
+  data: {
+    id: number,
+    name: string,
+    amount: number,
+    currency: string,
+  }
+}
+
+class AccountItem extends React.Component<Props> {
   state = {};
 
   render(): React.ReactNode {
-    return <View style={styles.root} />;
+    const {
+      id, name, amount, currency,
+    } = this.props?.data;
+    return (
+      <View style={styles.root}>
+        <View style={styles.header}>
+          <Text style={styles.accountId}>{id}</Text>
+          <Text style={styles.accountName}>{name}</Text>
+        </View>
+        <View style={styles.body}>
+          <View style={styles.bodyLeft}>
+            <Text style={styles.amount}>{amount}</Text>
+            <Text style={styles.currencySymbol}>{currency}</Text>
+          </View>
+          <View style={styles.bodyRight}>
+            <Text style={styles.actionBtn}>Set smart</Text>
+          </View>
+        </View>
+      </View>
+    );
   }
 }
 

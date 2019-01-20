@@ -17,6 +17,36 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 16 },
     shadowOpacity: 0.1,
     shadowRadius: 8,
+    paddingVertical: moderateScale(8),
+    paddingHorizontal: moderateScale(16),
+  },
+  header: {
+    flexDirection: 'row',
+  },
+  accountId: {
+    marginRight: moderateScale(8),
+  },
+  accountName: {
+    marginRight: moderateScale(8),
+  },
+  body: {
+    flexDirection: 'row',
+    flex: 1,
+    alignItems: 'center',
+  },
+  bodyLeft: {
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+  },
+  bodyRight: {
+    alignItems: 'flex-end',
+    flex: 1,
+  },
+  amount: {
+    fontSize: moderateScale(36),
+  },
+  currencySymbol: {
+    margin: moderateScale(8),
   },
 });
 
