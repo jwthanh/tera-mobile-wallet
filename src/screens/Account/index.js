@@ -3,18 +3,24 @@
  * @flow
  */
 import React from 'react';
-import { View } from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 
 import styles from './styles';
 import AccountList from './AccountList';
 
+const rightNavButton = (navigation: Object) => (
+  <TouchableOpacity onPress={() => navigation.navigate('NewAccount')}>
+    <Icon style={{ paddingHorizontal: 8 }} name="plus" size={30} />
+  </TouchableOpacity>
+);
+
 class Account extends React.Component {
-  static navigationOptions = {
+  static navigationOptions = ({ navigation }) => ({
     title: 'Tera Wallet',
-    headerRight: (<Icon style={{ paddingHorizontal: 8 }} name="plus" size={30} />),
-  };
+    headerRight: rightNavButton(navigation),
+  });
 
   state = {};
 
