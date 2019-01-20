@@ -2,7 +2,18 @@
  * @format
  * @flow
  */
-import { createAppContainer } from 'react-navigation';
+import { createAppContainer, createStackNavigator } from 'react-navigation';
 import TabNavigator from './TabNativator';
+import NewAccountStackModal from './NewAccountStackNavigator';
 
-export default createAppContainer(TabNavigator);
+
+const RootStack = createStackNavigator({
+  TabNavigator,
+  NewAccountStackModal,
+},
+{
+  mode: 'modal',
+  headerMode: 'none',
+});
+
+export default createAppContainer(RootStack);

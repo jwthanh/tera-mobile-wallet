@@ -11,7 +11,7 @@ import styles from './styles';
 import AccountList from './AccountList';
 
 const rightNavButton = (navigation: Object) => (
-  <TouchableOpacity onPress={() => navigation.navigate('NewAccount')}>
+  <TouchableOpacity onPress={() => navigation.navigate('NewAccountStackModal')}>
     <Icon style={{ paddingHorizontal: 8 }} name="plus" size={30} />
   </TouchableOpacity>
 );
