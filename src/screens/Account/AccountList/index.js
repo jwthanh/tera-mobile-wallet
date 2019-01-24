@@ -5,37 +5,57 @@
  * */
 import React from 'react';
 import { FlatList } from 'react-native';
+import { connect } from 'react-redux';
+
 import AccountItem from '../../../components/AccountItem';
+import * as accountActions from '../../../actions/account';
 
-const accountListData = [
-  {
-    id: 890344, name: 'Tera 1', amount: 302934, currency: 'TERA',
+type Props = {
+  account: {
+    items: Array<any>,
+    loading: boolean,
+    error: any,
   },
-  {
-    id: 435993, name: 'Tera 2', amount: 546564, currency: 'TERA',
-  },
-  {
-    id: 233454, name: 'Tera 3', amount: 756765, currency: 'TERA',
-  },
-  {
-    id: 435434, name: 'Tera 3', amount: 765745, currency: 'TERA',
-  },
-];
+  getAccountsByPublicKey: (publicKey: string) => void,
+}
 
-class AccountList extends React.Component {
+class AccountList extends React.Component<Props> {
+  componentDidMount(): void {
+    const { getAccountsByPublicKey } = this.props;
+    getAccountsByPublicKey({ publicKey: '0249950EC9729631DB60DAD566D25178EB9243D25A367A3CD800EC5761B3B799C3' });
+  }
+
   keyExtractor = item => `${item.id}`;
 
-  renderItem = ({ item }) => <AccountItem key={item.id} data={item} />;
+  renderItem = ({ item }) => (
+    <AccountItem
+      key={item.id}
+      data={{
+        id: item.Num,
+        name: item.Name,
+        amount: item.Value?.SumCOIN,
+        currency: item.Currency === 0 ? 'TERA' : 'N/A',
+      }}
+    />
+  );
 
   render(): React.ReactNode {
+    const { account } = this.props;
     return (
       <FlatList
         renderItem={this.renderItem}
-        data={accountListData}
+        data={account.items}
         keyExtractor={this.keyExtractor}
       />
     );
   }
 }
 
-export default AccountList;
+export default connect(
+  state => ({
+    account: state.account,
+  }),
+  {
+    getAccountsByPublicKey: accountActions.getAccountsByPublicKey,
+  },
+)(AccountList);
