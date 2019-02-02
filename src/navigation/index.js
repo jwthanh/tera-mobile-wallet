@@ -2,9 +2,10 @@
  * @format
  * @flow
  */
-import { createAppContainer, createStackNavigator } from 'react-navigation';
+import { createAppContainer, createStackNavigator, createSwitchNavigator } from 'react-navigation';
 import TabNavigator from './TabNativator';
 import NewAccountStackModal from './NewAccountStackNavigator';
+import NewWalletStackNavigator from './NewWalletStackNavigator';
 
 
 const RootStack = createStackNavigator({
@@ -16,4 +17,11 @@ const RootStack = createStackNavigator({
   headerMode: 'none',
 });
 
-export default createAppContainer(RootStack);
+const RootSwitch = createSwitchNavigator({
+  RootStack,
+  NewWalletStackNavigator,
+}, {
+  initialRouteName: 'Loading',
+});
+
+export default createAppContainer(RootSwitch);
