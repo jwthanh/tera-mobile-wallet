@@ -5,8 +5,12 @@
  * */
 import type { Saga } from 'redux-saga';
 import { all } from 'redux-saga/effects';
-import tera from './account';
+import account from './account';
+import wallet from './wallet';
 
 export default function* rootSaga(): Saga {
-  yield all([...tera]);
+  yield all([
+    ...account,
+    ...wallet,
+  ]);
 }

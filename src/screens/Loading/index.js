@@ -21,7 +21,7 @@ class Loading extends React.Component<Props, State> {
   componentDidMount(): void {
     setTimeout(() => {
       const { navigation } = this.props;
-      navigation.navigate('RootStack');
+      navigation.navigate('NewWalletStackNavigator');
     }, 3000);
   }
 

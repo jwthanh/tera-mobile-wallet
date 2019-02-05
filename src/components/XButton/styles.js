@@ -8,18 +8,14 @@ import { moderateScale } from 'react-native-size-matters';
 
 const styles = StyleSheet.create({
   root: {
-    alignItems: 'center',
+    borderColor: 'blue',
+    borderRadius: moderateScale(4),
+    borderWidth: 1,
+    paddingHorizontal: moderateScale(16),
+    paddingVertical: moderateScale(8),
   },
-  keyLabel: {
-    textAlign: 'center',
-    margin: moderateScale(16),
-  },
-  info: {
-
-  },
-  qrcode: {
-    backgroundColor: 'red',
-    margin: moderateScale(8),
+  title: {
+    color: 'blue',
   },
 });
 
