@@ -48,6 +48,9 @@ const styles = StyleSheet.create({
   currencySymbol: {
     margin: moderateScale(8),
   },
+  actionBtn: {
+
+  },
 });
 
 export default styles;

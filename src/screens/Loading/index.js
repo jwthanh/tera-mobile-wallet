@@ -3,7 +3,7 @@
  * @format
  * @flow
  * */
-import React from 'react';
+import * as React from 'react';
 import { View, ActivityIndicator } from 'react-native';
 import styles from './styles';
 
@@ -11,7 +11,11 @@ type Props = {
   navigation: Object,
 }
 
-class Loading extends React.Component<Props> {
+type State = {
+
+}
+
+class Loading extends React.Component<Props, State> {
   state = {};
 
   componentDidMount(): void {
@@ -21,7 +25,7 @@ class Loading extends React.Component<Props> {
     }, 3000);
   }
 
-  render(): React.ReactNode {
+  render(): React.Node {
     return (
       <View style={styles.root}>
         <ActivityIndicator />

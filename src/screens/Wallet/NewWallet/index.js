@@ -3,14 +3,22 @@
  * @format
  * @flow
  * */
-import React from 'react';
+import * as React from 'react';
 import { View, Text } from 'react-native';
 import styles from './styles';
 
-class NewWallet extends React.Component {
+type Props = {
+
+}
+
+type State = {
+
+}
+
+class NewWallet extends React.Component<Props, State> {
   state = {};
 
-  render(): React.ReactNode {
+  render(): React.Node {
     return (
       <View style={styles.root}>
         <Text>Private Key</Text>

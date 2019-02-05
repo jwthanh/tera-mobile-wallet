@@ -3,7 +3,7 @@
  * @format
  * @flow
  * */
-import React from 'react';
+import * as React from 'react';
 import { TouchableOpacity, View, Text } from 'react-native';
 import styles from './styles';
 import XInput from '../../../components/XInput';
@@ -37,8 +37,12 @@ type Props = {
   },
 };
 
-class NewAccount extends React.Component<Props> {
-  static navigationOptions = ({ navigation }) => ({
+type State = {
+
+}
+
+class NewAccount extends React.Component<Props, State> {
+  static navigationOptions = ({ navigation }: Object) => ({
     title: 'New Account',
     headerLeft: leftNavButton(navigation),
     headerRight: rightNavButton(navigation),
@@ -47,7 +51,8 @@ class NewAccount extends React.Component<Props> {
   state = {};
 
   componentDidMount(): void {
-    this.props.navigation.setParams({
+    const { navigation } = this.props;
+    navigation.setParams({
       onSave: this.onSave,
       onCancel: this.onCancel,
     });
@@ -59,10 +64,20 @@ class NewAccount extends React.Component<Props> {
     this.accountNameComponent.clear();
   }
 
-  render(): React.ReactNode {
+  accountNameComponent: XInput;
+
+  render(): React.Node {
     return (
       <View style={styles.root}>
-        <XInput ref={(input) => { this.accountNameComponent = input; }} placeholder="Enter account name..." autoFocus />
+        <XInput
+          ref={(input) => {
+            if (input) {
+              this.accountNameComponent = input;
+            }
+          }}
+          placeholder="Enter account name..."
+          autoFocus
+        />
       </View>
     );
   }

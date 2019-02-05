@@ -3,7 +3,7 @@
  * @format
  * @flow
  * */
-import React from 'react';
+import * as React from 'react';
 import { View, TextInput } from 'react-native';
 import type {
   ViewStyleProp,
@@ -12,13 +12,17 @@ import type {
 import styles from './styles';
 
 type Props = {
-  ...TextInput.props,
+  ...TextInput.propTypes,
   placeholder?: string,
   style?: ViewStyleProp,
   wrapperStyle?: ViewStyleProp,
 }
 
-class XInput extends React.Component<Props> {
+type State = {
+
+}
+
+class XInput extends React.Component<Props, State> {
   static defaultProps = {
     placeholder: 'type some key...',
     style: null,
@@ -40,7 +44,7 @@ class XInput extends React.Component<Props> {
     this.text = '';
   }
 
-  render(): React.ReactNode {
+  render(): React.Node {
     const { placeholder, style, wrapperStyle } = this.props;
     return (
       <View style={[styles.root, wrapperStyle]}>

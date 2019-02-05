@@ -9,13 +9,19 @@ import {
   TERA_GET_ACCOUNT_BY_PUBLIC_KEY_SUCCESS,
 } from '../actions/account';
 
-const initState = {
+type State = {
+  items: Array<any>,
+  loading: boolean,
+  error: any,
+}
+
+const initState: State = {
   items: [],
   loading: false,
   error: undefined,
 };
 
-const accountReducer = (state = initState, action) => {
+const accountReducer = (state: State = initState, action: Object) => {
   switch (action.type) {
     case TERA_GET_ACCOUNT_BY_PUBLIC_KEY_REQUEST:
       return {

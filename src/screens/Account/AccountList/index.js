@@ -3,7 +3,7 @@
  * @format
  * @flow
  * */
-import React from 'react';
+import * as React from 'react';
 import { FlatList } from 'react-native';
 import { connect } from 'react-redux';
 
@@ -16,7 +16,7 @@ type Props = {
     loading: boolean,
     error: any,
   },
-  getAccountsByPublicKey: (publicKey: string) => void,
+  getAccountsByPublicKey: ({ publicKey: string }) => void,
 }
 
 class AccountList extends React.Component<Props> {
@@ -39,7 +39,7 @@ class AccountList extends React.Component<Props> {
     />
   );
 
-  render(): React.ReactNode {
+  render(): React.Node {
     const { account } = this.props;
     return (
       <FlatList

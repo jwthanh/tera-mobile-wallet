@@ -2,14 +2,22 @@
  * @format
  * @flow
  */
-import React from 'react';
+import * as React from 'react';
 import { View } from 'react-native';
 import styles from './styles';
 
-class Send extends React.Component {
+type Props = {
+
+}
+
+type State = {
+
+}
+
+class Send extends React.Component<Props, State> {
   state = {};
 
-  render(): React.ReactNode {
+  render(): React.Node {
     return <View style={styles.root} />;
   }
 }

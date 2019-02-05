@@ -2,10 +2,17 @@
  * @format
  * @flow
  */
-import React from 'react';
+import * as React from 'react';
 import { View, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
+type Props = {
+
+}
+
+type State = {
+
+}
 
 import styles from './styles';
 import AccountList from './AccountList';
@@ -16,15 +23,15 @@ const rightNavButton = (navigation: Object) => (
   </TouchableOpacity>
 );
 
-class Account extends React.Component {
-  static navigationOptions = ({ navigation }) => ({
+class Account extends React.Component<Props, State> {
+  static navigationOptions = ({ navigation }: Object) => ({
     title: 'Tera Wallet',
     headerRight: rightNavButton(navigation),
   });
 
   state = {};
 
-  render(): React.ReactNode {
+  render(): React.Node {
     return (
       <View style={styles.root}>
         <AccountList />
